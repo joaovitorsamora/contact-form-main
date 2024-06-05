@@ -1,0 +1,18 @@
+.alert-container{
+    background-color: #2A4244;
+    font-family: 'Karla';
+    color: #FFF;
+    padding: 0.1rem;
+    border: none;
+    border-radius: 0.4rem;   
+}
+
+.message {
+    padding: 0 0.4rem;
+    font-weight: 400;
+}
+
+.subMessage {
+    padding: 0 0.4rem;
+    font-weight: 300;
+}

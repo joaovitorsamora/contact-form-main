@@ -1,6 +1,7 @@
-import { TextComponent, ButtonComponent, InputComponent } from './components'
+import { TextComponent, ButtonComponent, InputComponent, AlertComponent } from './components'
 import emailjs from 'emailjs-com';
 import './App.css'
+import { useState } from 'react';
 
 function App() {
 
@@ -8,7 +9,7 @@ function App() {
   const templateID = import.meta.env.REACT_APP_TEMPLATE_ID
   const serviceID = import.meta.env.REACT_APP_SERVICE_ID
 
-
+  const [showAlert, setShowAlert] = useState(false)
 
   function sendEmail(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault()
@@ -26,8 +27,23 @@ function App() {
       (e.target as HTMLFormElement).reset();
   }
 
+  function handleClickAlert() {
+   setShowAlert(true)
+   setTimeout(() => setShowAlert(false), 3000)
+  }
+
   return (
     <main className='main-container'>
+      {
+        showAlert && (
+        <section style={{position: 'fixed', top: '1rem', left: '29rem', zIndex: 1000}}>
+          <AlertComponent
+            message='Message Sent!'
+            subMessage="Thanks for completing the form. We'll be in touch soon."
+          />
+        </section>
+        )
+      }
       <header>
         <TextComponent style={{fontSize: '1.5rem', fontWeight: 'bold', fontFamily: 'Karla'}} text='Contact Us'/>
       </header>
@@ -82,7 +98,7 @@ function App() {
             <ButtonComponent style={{
               backgroundColor: '#0C7D69', padding: '0.6rem', width: '100%', borderRadius: '0.4rem',
               outlineStyle: 'none', border: 'none', fontFamily: 'Karla', color: '#FFF'
-            }} type='submit' value='Submit'> Submit </ButtonComponent>
+            }} type='submit' value='Submit' onClick={handleClickAlert}> Submit </ButtonComponent>
           </section>  
         </footer>    
       </form>
