@@ -1,10 +1,19 @@
-interface TextProps{
-    text: string
-    style: React.CSSProperties
+import React from 'react'
+import styled from 'styled-components'
+
+interface TextProps {
+  children: React.ReactNode
+  style: React.CSSProperties
 }
 
-export const TextComponent: React.FC<TextProps> = ({text, style, ...props}) => {
-    return (
-        <p style={style} {...props}>{text}</p>
-    )
+const StyledText = styled.p<TextProps>`
+  ${(props) => props.style && { ...props.style }}
+`
+
+export const TextComponent: React.FC<TextProps> = ({ children, style, ...props }) => {
+  return (
+    <StyledText style={style} {...props}>
+      {children}
+    </StyledText>
+  )
 }
