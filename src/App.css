@@ -92,9 +92,21 @@ textarea {
   align-items: center;
 }
 
-@media screen and (max-width: 430px), (max-height: 425px) {
+@media screen and (max-width: 540px), (max-width: 430px), (max-height: 425px) {
   .main-container {
     width: 100%;
+  }
+  .name-container {
+    flex-direction: column;
+  }
+  .last-name-container {
+    margin-left: 0;
+  }
+  .query-type-container {
+    flex-direction: column;
+  }
+  .support-request-container {
+    margin-left: 0;
   }
 }
 
