@@ -91,3 +91,29 @@ textarea {
   justify-content: center;
   align-items: center;
 }
+
+@media screen and (max-width: 430px), (max-height: 425px) {
+  .main-container {
+    width: 100%;
+  }
+}
+
+@media screen and (max-width: 360px), (max-height: 390px) {
+  .main-container {
+    width: 100%;
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+    padding-left: 1rem;
+    padding-right: 2rem;
+  }
+}
+
+@media screen and (max-width: 344px) {
+  .main-container {
+    width: 102%;
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+    padding-left: 1rem;
+    padding-right: 2rem;
+  }
+}
